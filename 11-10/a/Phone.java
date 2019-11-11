@@ -2,7 +2,7 @@ package a;
 
 public class Phone {
 		
-	String band;
-	String color;
-	double price;
+	public String band;
+	public String color;
+	public double price;
 }
