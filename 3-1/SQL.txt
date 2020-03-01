@@ -1,0 +1,37 @@
+CREATE DATABASE boke CHARSET utf8mb4;
+USE boke;
+
+CREATE TABLE users (
+id INT PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(255) NOT NULL UNIQUE,
+nickname VARCHAR(255) NOT NULL,
+password VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE articles (
+id INT PRIMARY KEY AUTO_INCREMENT,
+user_id INT NOT NULL,
+title VARCHAR(255) NOT NULL,
+content TEXT NOT NULL
+);
+
+CREATE TABLE comments (
+id INT PRIMARY KEY AUTO_INCREMENT,
+user_id INT NOT NULL,
+article_id INT NOT NULL,
+content VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE like_relations (
+user_id INT NOT NULL,
+article_id INT NOT NULL,
+PRIMARY KEY (user_id, article_id)
+);
+
+insert into users(username,nickname,password) values('peixinchen','老陈','123'),('zhongrong','zhonglaoshi','445');
+
+select id from users order by id desc limit 1;
+
+insert into articles (user_id,title,content) values(1,'《排序》','哈哈哈');
+
+select title from articles order by id desc;
