@@ -1,0 +1,55 @@
+create table classes
+(
+c_id int primary key auto_increment,
+classname varchar(100) comment "班级名称"
+);
+
+create table student
+(
+s_id int primary key auto_increment,
+sn varchar(100) not null,
+classid int,
+studentname varchar100),
+foreign key classid references classes(c_id)
+);
+
+create table teacher
+(
+t_id int primary key auto_increment,
+teachername varchar(100)
+);
+
+create table course
+(
+co_id int primary key auto_increment,
+coursename varchar(100)
+);
+
+create table schedule
+(
+sch_id int primary key auto_increment,
+timer time,
+courseid int not null,
+teacherid int not null,
+classid int not null,
+foreign key courseid references course(co_id),
+foreign key teacherid references teacher(t_id)
+);
+
+create table grade
+(
+id int not null,
+studentid int not null,
+courseid int not null,
+grade double,
+foreign key courseid references course(co_id),
+foreign key studentid references student(t_id)
+);
+
+insert into classes(name) values("java10班"),("java12班"),("java14班");
+insert into student(sn,classid,studentname) values("000001",1,"11"),("000002",1,"12"),("000003",1,"13"),("000011",2,"14"),("000011",2,"16"),("000111",3,"21"),("000112",3,"22"),("000113",3,"24");
+insert into teacher(teachername) values("wei"),("zhao"),("gu");
+insert into course(coursename) values("C"),("java"),("python");
+insert into grade(studentid,courseid,grade) values(1,1,80),(2,2,70),(3,3,86);
+insert into schedule(timer,courseid,teacherid,classid) values("10:00:00",1,1),("08:00:00",2,2),("14:00:00",3,3);
+
