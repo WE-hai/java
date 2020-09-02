@@ -17,7 +17,7 @@ public class ExamDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            c=DBUtil.getConnection();
+            c = DBUtil.getConnection();
             String sql = "select" +
                     "  e.id," +
                     "  e.exam_name," +
@@ -30,11 +30,11 @@ public class ExamDAO {
                     "   from exam e" +
                     "  join classes c on e.classes_id = c.id" +
                     "  join course c2 on e.course_id = c2.id";
-            ps=c.prepareStatement(sql);
-            rs=ps.executeQuery();
+            ps = c.prepareStatement(sql);
+            rs = ps.executeQuery();
             while(rs.next()){
                 //设置考试对象
-                Exam e=new Exam();
+                Exam e = new Exam();
                 e.setDictionaryTagKey(String.valueOf(rs.getInt("id")));
                 e.setDictionaryTagValue(rs.getString("exam_name"));
                 e.setExamDesc(rs.getString("exam_desc"));
@@ -45,7 +45,7 @@ public class ExamDAO {
                 classes.setClassesName(rs.getString("classes_name"));
                 e.setClasses(classes);
                 //设置课程对象
-                Course course=new Course();
+                Course course = new Course();
                 course.setId(rs.getInt("course_id"));
                 course.setCourseName(rs.getString("course_name"));
                 e.setCourse(course);

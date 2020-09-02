@@ -40,6 +40,7 @@ public class LoginFilter implements Filter {
                 return;
             }
         }
-        chain.doFilter(request,response);   //没有非敏感资源，或敏感资源登陆以后，继续调用后续配置资源
+        chain.doFilter(request,response);
+        //没有非敏感资源，或敏感资源登陆以后，继续调用后续配置资源
     }
 }

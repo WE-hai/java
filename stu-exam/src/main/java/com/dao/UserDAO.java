@@ -1,17 +1,11 @@
 package com.dao;
 
-import com.model.Classes;
-import com.model.Course;
-import com.model.Exam;
 import com.model.User;
 import com.util.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class UserDAO {
     public static User query(User user) {
