@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JUnitGenerator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../其他/JUnitGenerator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
